@@ -1,0 +1,4 @@
+Contact: security@finnbase.com
+Expires: 2026-12-31T23:59:59.000Z
+Acknowledgments: https://finnbase.com/security/hall-of-fame
+Preferred-Languages: en

@@ -1,0 +1,16 @@
+FINNBASE OPEN SOURCE NOTICES
+===========================
+
+Finnbase is built using the following open-source software:
+
+1. Next.js (MIT License) - Copyright (c) 2024 Vercel, Inc.
+2. React (MIT License) - Copyright (c) Meta Platforms, Inc.
+3. Three.js (MIT License) - Copyright (c) 2010-2024 three.js authors
+4. Tailwind CSS (MIT License) - Copyright (c) Tailwind Labs, Inc.
+5. Lucide React (ISC License) - Copyright (c) 2024 Lucide Contributors
+6. Recharts (MIT License) - Copyright (c) 2015-2024 recharts authors
+7. Framer Motion (MIT License) - Copyright (c) 2024 Framer B.V.
+8. Supabase (Apache 2.0) - Copyright (c) 2024 Supabase
+9. NextAuth.js (ISC License) - Copyright (c) 2022-2024, Balázs Orbán
+
+Full license texts are available in the respective package repositories.
