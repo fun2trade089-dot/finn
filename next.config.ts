@@ -18,5 +18,8 @@ export default withSentryConfig(nextConfig, {
   webpack: {
     reactComponentAnnotation: { enabled: true },
     automaticVercelMonitors: true,
+    treeshake: {
+      removeDebugLogging: true,
+    },
   },
 })

@@ -4,8 +4,8 @@ import { NextResponse, type NextRequest } from "next/server"
 // Simple in-memory rate limiter (For production on Vercel Edge, use @upstash/ratelimit)
 const rateLimitMap = new Map<string, { count: number, lastReset: number }>()
 
-export async function proxy(request: NextRequest) {
-  // --- 1. Rate Limiting (from old middleware) ---
+export async function middleware(request: NextRequest) {
+  // --- 1. Rate Limiting ---
   if (request.nextUrl.pathname.startsWith('/api/auth/')) {
     const ip = request.ip ?? request.headers.get('x-forwarded-for') ?? 'anonymous'
     const now = Date.now()
@@ -35,7 +35,7 @@ export async function proxy(request: NextRequest) {
     }
   }
 
-  // --- 2. Supabase Auth (from original proxy) ---
+  // --- 2. Supabase Auth ---
   let supabaseResponse = NextResponse.next({ request })
 
   const supabase = createServerClient(
@@ -67,7 +67,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/dashboard", request.url))
   }
 
-  // --- 3. Security Headers (from old middleware) ---
+  // --- 3. Security Headers ---
   supabaseResponse.headers.set('X-DNS-Prefetch-Control', 'on')
   supabaseResponse.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload')
   supabaseResponse.headers.set('X-XSS-Protection', '1; mode=block')
