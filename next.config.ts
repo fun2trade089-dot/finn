@@ -15,11 +15,14 @@ export default withSentryConfig(nextConfig, {
   widenClientFileUpload: true,
   tunnelRoute: "/monitoring",
   hideSourceMaps: true,
-  webpack: {
-    reactComponentAnnotation: { enabled: true },
-    automaticVercelMonitors: true,
-    treeshake: {
+  
+  // Sentry SDK 10+ requires these to be inside the webpack object
+  webpack: (config) => {
+    config.automaticVercelMonitors = true;
+    config.reactComponentAnnotation = { enabled: true };
+    config.treeshake = {
       removeDebugLogging: true,
-    },
+    };
+    return config;
   },
 })
