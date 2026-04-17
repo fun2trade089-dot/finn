@@ -4,7 +4,7 @@ import { NextResponse, type NextRequest } from "next/server"
 // Simple in-memory rate limiter (For production on Vercel Edge, use @upstash/ratelimit)
 const rateLimitMap = new Map<string, { count: number, lastReset: number }>()
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   // --- 1. Rate Limiting ---
   if (request.nextUrl.pathname.startsWith('/api/auth/')) {
     const ip = request.ip ?? request.headers.get('x-forwarded-for') ?? 'anonymous'
