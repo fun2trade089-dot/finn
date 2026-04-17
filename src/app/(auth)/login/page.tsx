@@ -69,7 +69,7 @@ export default function LoginPage() {
           onClick={handleGoogleLogin}
           className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-100 text-black font-semibold py-3 rounded-xl transition-all active:scale-[0.98] mb-6 shadow-lg"
         >
-          <Chrome className="w-5 h-5" />
+          <Globe className="w-5 h-5" />
           Continue with Google
         </button>
 
